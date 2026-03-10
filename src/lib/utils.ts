@@ -6,13 +6,28 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export interface Transaction {
-  id: number;
+  id: string;
   type: "income" | "expense";
   category: string;
   amount: number;
   date: string;
   description: string;
-  created_at: string;
+  payment_method?: "PIX" | "Dinheiro" | "Cartão";
+  users: string[];
+  createdAt: string;
+}
+
+export interface Member {
+  id: string;
+  name: string;
+  userId: string;
+  createdAt: string;
+}
+
+export interface Category {
+  id: string;
+  type: "income" | "expense";
+  name: string;
 }
 
 export const CATEGORIES = {
